@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body style="font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #f4f4f4; margin: 0;">
+
+    <div style="background: white; padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); width: 300px; text-align: center;">
+        <h2 style="margin-bottom: 20px;">To-Do List</h2>
+        
+        <!-- Input dan Tombol -->
+        <div style="display: flex; gap: 10px; margin-bottom: 20px;">
+            <input type="text" id="task-input" placeholder="Tambahkan kegiatan baru..." 
+                style="flex: 1; padding: 8px; border: 1px solid #ddd; border-radius: 5px;">
+            <button id="add-task" 
+                style="padding: 8px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer;">
+                Tambah
+            </button>
+        </div>
+        
+        <!-- Daftar Tugas -->
+        <ul id="task-list" style="list-style: none; padding: 0;"></ul>
+    </div>
+
+    <script src="praktugas1.js"></script>
+
+</body>
+</html>
