@@ -14,13 +14,15 @@ fitur-fitur utama dari aplikasi personal dashboard jadwal kuliah:
 -Pengguna dapat menghapus mata kuliah dari jadwal mereka.
 -Penghapusan ini langsung tercermin di tampilan dan disimpan di localStorage.
 
-# Penyimpanan Lokal: Semua data jadwal kuliah disimpan menggunakan localStorage sehingga tetap tersimpan meskipun halaman dimuat ulang atau aplikasi ditutup.
+# Penyimpanan Lokal: 
+Semua data jadwal kuliah disimpan menggunakan localStorage sehingga tetap tersimpan meskipun halaman dimuat ulang atau aplikasi ditutup.
 
 # Tampilan Dinamis:
 -Daftar jadwal kuliah ditampilkan secara dinamis menggunakan template literals.
 -Tampilan secara otomatis terupdate setiap kali ada perubahan pada jadwal.
 
-# Interaksi Pengguna yang Mudah: Aplikasi mendukung interaksi pengguna yang intuitif melalui tombol untuk menambah, mengedit, dan menghapus jadwal kuliah.
+# Interaksi Pengguna yang Mudah:
+Aplikasi mendukung interaksi pengguna yang intuitif melalui tombol untuk menambah, mengedit, dan menghapus jadwal kuliah.
 
 # Pada bagian html terdapat kode dimana pengguna dapat menginputkan nama matakuliah, hari, dan jam kuliah. kode sebagai berikut :
 <form id="scheduleForm">
@@ -34,27 +36,38 @@ fitur-fitur utama dari aplikasi personal dashboard jadwal kuliah:
 <div id="scheduleList"></div> 
 
 
-# Variabel CSS (:root): Menyimpan warna dan nilai umum seperti warna utama, latar belakang, dan radius sudut untuk digunakan secara konsisten di seluruh aplikasi.
+# Variabel CSS (:root): 
+Menyimpan warna dan nilai umum seperti warna utama, latar belakang, dan radius sudut untuk digunakan secara konsisten di seluruh aplikasi.
 
-# Pengaturan Dasar untuk body: Menghilangkan margin default, mengatur font keluarga, latar belakang, warna teks, dan memberikan padding agar tampilan lebih rapi dan nyaman.
+# Pengaturan Dasar untuk body:
+Menghilangkan margin default, mengatur font keluarga, latar belakang, warna teks, dan memberikan padding agar tampilan lebih rapi dan nyaman.
 
-# Container Utama (.container): Menyediakan area konten utama dengan lebar terbatas, padding, sudut melengkung, dan bayangan untuk memberi efek kedalaman.
+# Container Utama (.container): 
+Menyediakan area konten utama dengan lebar terbatas, padding, sudut melengkung, dan bayangan untuk memberi efek kedalaman.
 
-# Judul (h1): Menyelaraskan teks ke tengah dengan warna dan ukuran yang mencolok, menonjolkan judul halaman.
+# Judul (h1): 
+Menyelaraskan teks ke tengah dengan warna dan ukuran yang mencolok, menonjolkan judul halaman.
 
-# Formulir (form): Menggunakan flexbox untuk menyusun elemen form secara vertikal dengan jarak antar elemen.
+# Formulir (form):
+Menggunakan flexbox untuk menyusun elemen form secara vertikal dengan jarak antar elemen.
 
-# Input Field (input): Memberikan padding, border, dan efek fokus untuk input yang lebih interaktif dan menarik.
+# Input Field (input):
+Memberikan padding, border, dan efek fokus untuk input yang lebih interaktif dan menarik.
 
-# Tombol (button): Menata tombol dengan warna latar belakang yang menonjol dan efek hover untuk interaksi yang responsif.
+# Tombol (button): 
+Menata tombol dengan warna latar belakang yang menonjol dan efek hover untuk interaksi yang responsif.
 
-# Daftar (ul, li): Mengatur gaya daftar dengan elemen yang saling terpisah, latar belakang yang lembut, dan efek hover.
+# Daftar (ul, li): 
+Mengatur gaya daftar dengan elemen yang saling terpisah, latar belakang yang lembut, dan efek hover.
 
-# Aksi Tombol (.actions button): Menyediakan tombol aksi seperti "simpan" dan "hapus" dengan warna dan efek hover yang berbeda untuk memberi petunjuk aksi kepada pengguna.
+# Aksi Tombol (.actions button): 
+Menyediakan tombol aksi seperti "simpan" dan "hapus" dengan warna dan efek hover yang berbeda untuk memberi petunjuk aksi kepada pengguna.
 
-# Pengelolaan Data: Menggunakan localStorage untuk menyimpan jadwal kuliah, agar data tetap ada meskipun halaman dimuat ulang.
+# Pengelolaan Data: 
+Menggunakan localStorage untuk menyimpan jadwal kuliah, agar data tetap ada meskipun halaman dimuat ulang.
 
-# Kelas ScheduleApp: Kelas ini menangani tambah, edit, hapus jadwal, serta memperbarui tampilan dan localStorage.
+# Kelas ScheduleApp:
+Kelas ini menangani tambah, edit, hapus jadwal, serta memperbarui tampilan dan localStorage.
 
 # Metode:
 - addSchedule: Menambahkan jadwal baru.
@@ -63,8 +76,10 @@ fitur-fitur utama dari aplikasi personal dashboard jadwal kuliah:
 
 - deleteSchedule: Menghapus jadwal dari daftar.
 
-# Rendering Dinamis: Menggunakan template literals untuk merender daftar jadwal secara dinamis di halaman.
+# Rendering Dinamis: 
+Menggunakan template literals untuk merender daftar jadwal secara dinamis di halaman.
 
-# Interaksi Pengguna: Event listeners menangani interaksi pengguna untuk menambah, mengedit, atau menghapus jadwal kuliah.
+# Interaksi Pengguna:
+Event listeners menangani interaksi pengguna untuk menambah, mengedit, atau menghapus jadwal kuliah.
 
-berikut screenshot dashboard : <src = "dashboard.png"/>
+berikut screenshot dashboard : ![screenshot dashoard][dashboard.png] 
