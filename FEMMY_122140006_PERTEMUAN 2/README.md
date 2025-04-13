@@ -82,4 +82,4 @@ Menggunakan template literals untuk merender daftar jadwal secara dinamis di hal
 # Interaksi Pengguna:
 Event listeners menangani interaksi pengguna untuk menambah, mengedit, atau menghapus jadwal kuliah.
 
-berikut screenshot dashboard : ![screenshot dashoard][dashboard.png] 
+[screenshot dashoard][dashboard.png] 
