@@ -1,70 +1,96 @@
-# Getting Started with Create React App
+# Aplikasi Manajemen Buku Pribadi
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Deskripsi Aplikasi
+Aplikasi ini memungkinkan pengguna untuk:
+- Menambah buku baru dengan data judul, penulis, dan status (Dimiliki / Sedang Dibaca / Ingin Dibeli).
+- Mengedit dan menghapus buku dari daftar.
+- Memfilter daftar buku berdasarkan status.
+- Mencari buku dengan kata kunci pada judul.
+- Menyimpan data buku di LocalStorage agar persisten di browser.
 
-## Available Scripts
+Aplikasi dibangun menggunakan React.js, memanfaatkan konsep functional components, Hooks, dan React Router.
 
-In the project directory, you can run:
+## Instruksi Instalasi dan Menjalankan
+1. **Clone repository**
+   ```bash
+   git clone https://github.com/username/book-manager-app.git
+   cd book-manager-app
+   ```
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+3. **Jalankan di mode development**
+   ```bash
+   npm start
+   ```
+   Aplikasi akan terbuka di `http://localhost:3000`.
+4. **Build untuk produksi**
+   ```bash
+   npm run build
+   ```
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Screenshot Antarmuka
+1. Halaman Home (Form & Daftar Buku)
+   ![Home Page](screenshots/home.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Penjelasan Fitur React yang Digunakan
+- useState dan useEffect: Mengelola state lokal dan side effect (penyimpanan ke LocalStorage).
+- Custom Hooks:
+  - `useLocalStorage(key, initialValue)`: Abstraksi penyimpanan ke `window.localStorage`.
+  - `useBookStats()`: Menghitung statistik jumlah buku per status.
+- React Router: Navigasi multi-halaman antara Home (`/`) dan Stats (`/stats`).
+- PropTypes: Validasi tipe props pada komponen.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Penjelasan Kode dengan Komentar
+```js
+// src/context/BookContext.js
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+export const BookContext = createContext(); // Membuat context kosong
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+export const BookProvider = ({ children }) => {
+  // Hook custom untuk sinkron state dengan LocalStorage
+  const [books, setBooks] = useLocalStorage('books', []);
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+  // Tambah buku baru dengan id unik
+  const addBook = (book) => {
+    setBooks([...books, { ...book, id: Date.now() }]);
+  };
 
-### `npm run eject`
+  // Edit buku berdasarkan id
+  const editBook = (id, updatedBook) => {
+    setBooks(books.map(b => b.id === id ? { ...b, ...updatedBook } : b));
+  };
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+  // Hapus buku dari state
+  const deleteBook = (id) => {
+    setBooks(books.filter(b => b.id !== id));
+  };
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+  return (
+    <BookContext.Provider value={{ books, addBook, editBook, deleteBook }}>
+      {children}
+    </BookContext.Provider>
+  );
+};
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+export const useBookContext = () => useContext(BookContext);
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## Laporan Testing
+Semua test dilakukan menggunakan Jest dan React Testing Library.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Test Unit Komponen
+   - `BookForm.test.js`: Validasi form, penambahan buku.
+   - `BookList.test.js`: Tampilan saat kosong dan saat ada data.
+   - `BookFilter.test.js`: Callback filter & search.
+   - `BookContext.test.js`: Fungsi add/edit/delete dari context.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+2. Screenshot Hasil Test
+   ![Test Results](screenshots/tests.png)
